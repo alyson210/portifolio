@@ -8,6 +8,18 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.top-logo {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #f4f4f4;
+}
+
+.top-logo img {
+    max-width: 150px;
+    height: auto;
+}
+
 .navbar {
     background-color: #333;
     padding: 15px;
@@ -37,7 +49,7 @@ body {
     border-radius: 3px;
     margin-right: 5px;
     font-size: 14px;
-    width: 40%; /* Reduced width for smaller search bar */
+    width: 40%;
 }
 
 .search-form button {
@@ -48,7 +60,7 @@ body {
     border-radius: 3px;
     cursor: pointer;
     font-size: 14px;
-    width: 20%; /* Reduced width for smaller button */
+    width: 20%;
 }
 
 .search-form button:hover {
@@ -132,10 +144,14 @@ h1 {
     }
 
     .search-form input {
-        width: 60%; /* Adjusted for mobile */
+        width: 60%;
     }
 
     .search-form button {
-        width: 30%; /* Adjusted for mobile */
+        width: 30%;
+    }
+
+    .top-logo img {
+        max-width: 120px;
     }
 }
