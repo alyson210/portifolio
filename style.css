@@ -10,7 +10,7 @@ body {
 
 .top-logo {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 10px 0;
     background-color: #2e2e2e;
 }
