@@ -12,7 +12,7 @@ function escrevendoLetra(){
 
     const titulo = document.querySelector('.digitando');
     ativaLetra(titulo);
-function ativacaoMenu(){
+function ativacaoMenu() {
     const ativaMenu = document.querySelector('.fa-bars');
     const navMenu = document.querySelector('header .navegacao-primaria');
 
@@ -20,8 +20,9 @@ function ativacaoMenu(){
         ativaMenu.classList.toggle('fa-x');
         navMenu.classList.toggle('ativado');
     });
-    ativacaoMenu();
 }
+ativacaoMenu(); 
+
 }
 function sobreMim(){
     const experiencia = document.querySelectorAll('.experience_content div');
