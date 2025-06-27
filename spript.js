@@ -5,28 +5,24 @@ function escrevendoLetra(){
         elemento.innerHTML  = '';
         arrTexto.forEach((letra, i)=>{
             setTimeout(()=>{
-                elemento.innerHTML += letra; 
+                elemento.innerHTML += letra;
             }, 75 * i);
         });
     }
 
     const titulo = document.querySelector('.digitando');
     ativaLetra(titulo);
-} 
-
 function ativacaoMenu(){
     const ativaMenu = document.querySelector('.fa-bars');
-    const navMenu = document.querySelector('header .navegacao-primaria')
+    const navMenu = document.querySelector('header .navegacao-primaria');
 
-
-    ativaMenu.addEventListener('click', ()=>{
-        ativaMenu.classList.toggle('fa-x')
-        navMenu.classList.toggle('ativado')
-    })
+    ativaMenu.addEventListener('click', () => {
+        ativaMenu.classList.toggle('fa-x');
+        navMenu.classList.toggle('ativado');
+    });
+    ativacaoMenu();
 }
-
-ativacaoMenu()
-
+}
 function sobreMim(){
     const experiencia = document.querySelectorAll('.experience_content div');
     const botao = document.querySelectorAll('.experience_content ul li')
