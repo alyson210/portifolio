@@ -1,12 +1,11 @@
-const btnMenu = document.getElementById('btn-menu');
-const nav = document.querySelector('.navegacao-primaria');
+  const btnMenu = document.getElementById('btn-menu');
+  const nav = document.querySelector('.navegacao-primaria');
 
-btnMenu.addEventListener('click', () => {
-nav.classList.toggle('ativado');
-btnMenu.classList.toggle('fa-bars');
-btnMenu.classList.toggle('fa-xmark');
-});
-
+  btnMenu.addEventListener('click', () => {
+    nav.classList.toggle('ativado');
+    btnMenu.classList.toggle('fa-bars');
+    btnMenu.classList.toggle('fa-xmark');
+  });
 
 
 
