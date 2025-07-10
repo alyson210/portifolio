@@ -1,132 +1,95 @@
-  const btnMenu = document.getElementById('btn-menu');
-  const nav = document.querySelector('.navegacao-primaria');
+const txtElement = document.querySelector('.digitando');
+const txts = ['Desenvolvedor Web', 'Programador Python',];
+let txtIndex = 0; 
+let charIndex = 0; 
+let isDeleting = false;
 
-  btnMenu.addEventListener('click', () => {
-    nav.classList.toggle('ativado');
-    btnMenu.classList.toggle('fa-bars');
-    btnMenu.classList.toggle('fa-xmark');
-  });
+function typeWriter() {
+    const currentTxt = txts[txtIndex];
 
-
-
-    experiencia[0].classList.add('ativo')
-    botao[0].classList.add('ativo')
-    education[0].classList.add('ativo')
-    botaoEducation[0].classList.add('ativo')
-
-    function slideShow(index){
-        experiencia.forEach((divisao)=>{
-            divisao.classList.remove('ativo');
-        });
-        botao.forEach((item)=>{
-            item.classList.remove('ativo')
-        });
-        experiencia[index].classList.add('ativo')
-        botao[index].classList.add('ativo')
+    if (isDeleting) {
+        txtElement.textContent = currentTxt.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        txtElement.textContent = currentTxt.substring(0, charIndex + 1);
+        charIndex++;
     }
 
-    function slideShow2(index){
-        education.forEach((divisao)=>{
-            divisao.classList.remove('ativo');
-        });
-        botaoEducation.forEach((item)=>{
-            item.classList.remove('ativo')
-        });
-        education[index].classList.add('ativo')
-        botaoEducation[index].classList.add('ativo')
+    if (!isDeleting && charIndex === currentTxt.length) {
+        setTimeout(() => isDeleting = true, 1000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        txtIndex = (txtIndex + 1) % txts.length;
     }
 
+    const typingSpeed = isDeleting ? 50 : 150; 
 
-    botao.forEach((event,index)=>{
-        event.addEventListener('click', ()=>{
-            slideShow(index)
-        });
-    });
-
-    botaoEducation.forEach((div, index)=>{
-        div.addEventListener('click', ()=>{
-            slideShow2(index)
-        })
-    })
-}
-sobreMim();
-
-
-
-
-const listaALL = document.querySelectorAll('.projects_armazenamento ul li');
-const buttonGeral = document.querySelectorAll('.project_navegacao li');
-const buttonALL = document.querySelector('.project_models .all');
-
-listaALL.forEach((item)=>{
-    item.classList.add('ativo');
-})
-
-function removeClick(index){
-    buttonGeral.forEach((item)=>{
-        item.classList.remove('ativo');
-    })
-    buttonGeral[index].classList.add('ativo')
+    setTimeout(typeWriter, typingSpeed);
 }
 
-buttonGeral.forEach((event,index)=>{
-    event.addEventListener('click', ()=>{
-        removeClick(index)
-    })
-})
+const btnMenu = document.getElementById('btn-menu');
 
-function showLista(lista, buttom = "all"){
-    lista.forEach((item)=>{
-        item.classList.remove('ativo');
+const navegacaoPrimaria = document.querySelector('.navegacao-primaria');
+
+
+if (btnMenu && navegacaoPrimaria) {
+
+    btnMenu.addEventListener('click', () => {
+
+        navegacaoPrimaria.classList.toggle('ativado');
     });
 
-    if(buttom == 'design'){
-        lista[0].classList.add('ativo')
-        lista[1].classList.add('ativo')
-    }
-    if(buttom == 'graphic'){
-        lista[2].classList.add('ativo');
-        lista[3].classList.add('ativo');
-    }
 
-    if(buttom == 'website'){
-        lista[4].classList.add('ativo');
-        lista[5].classList.add('ativo');
-        lista[6].classList.add('ativo');
-        lista[7].classList.add('ativo');
-    }
+    navegacaoPrimaria.querySelectorAll('a').forEach(item => {
+        item.addEventListener('click', () => {
 
-    if(buttom == 'all'){
-        lista[0].classList.add('ativo')
-        lista[1].classList.add('ativo')
-        lista[2].classList.add('ativo');
-        lista[3].classList.add('ativo');
-        lista[4].classList.add('ativo');
-        lista[5].classList.add('ativo');
-        lista[6].classList.add('ativo');
-        lista[7].classList.add('ativo');
+            navegacaoPrimaria.classList.remove('ativado');
+        });
+    });
+}
+
+
+
+const projectNav = document.querySelector('.project_navegacao');
+
+const projectItems = document.querySelectorAll('.projects_armazenamento ul li');
+
+if (projectNav && projectItems.length > 0) {
+
+    projectNav.addEventListener('click', (e) => {
+
+        if (e.target.tagName === 'LI') {
+
+            projectNav.querySelectorAll('li').forEach(li => li.classList.remove('ativo'));
+
+            e.target.classList.add('ativo');
+
+
+            const filter = e.target.classList[0];
+            projectItems.forEach(item => {
+
+                if (filter === 'all' || item.id === filter) {
+
+                    item.classList.add('ativo');
+                } else {
+                    item.classList.remove('ativo');
+                }
+            });
+        }
+    });
+
+    const allButton = projectNav.querySelector('.all');
+    if (allButton) {
+        allButton.click();
     }
 }
 
-buttonGeral.forEach((item)=>{
-    item.addEventListener('click', (e)=>{
-        let currentButton = e.target;
-        if(currentButton.classList.contains('all')){
-            showLista(listaALL);
-        } if(currentButton.classList.contains('design')){
-            showLista(listaALL, "design")
-        }
 
-        if(currentButton.classList.contains('graphic')){
-            showLista(listaALL, "graphic")
-        }
 
-        if(currentButton.classList.contains('website')){
-            showLista(listaALL, "website")
-        }
+document.addEventListener('DOMContentLoaded', () => {
 
-        if(currentButton.classList.contains('all')){
-            showLista(listaALL, "all")
-        }
-    });
+    if (txtElement) {
+        typeWriter();
+    }
+
 });
