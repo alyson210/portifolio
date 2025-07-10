@@ -9,13 +9,6 @@
 
 
 
-function sobreMim(){
-    const experiencia = document.querySelectorAll('.experience_content div');
-    const botao = document.querySelectorAll('.experience_content ul li')
-    const education = document.querySelectorAll('.education_content div');
-    const botaoEducation = document.querySelectorAll('.education_content ul li')
-
-
     experiencia[0].classList.add('ativo')
     botao[0].classList.add('ativo')
     education[0].classList.add('ativo')
