@@ -136,6 +136,22 @@ header h1 span {
     opacity: 1;
     animation: pisca .5s infinite;
 }
+.section-div img {
+
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+
+    width: 300px;
+    height: auto;
+
+    /* Para telas menores */
+    @media (max-width: 768px) {
+        width: 250px;
+        display: block;
+        margin: 20px auto;
+    }
+}
 
 @keyframes pisca {
     from {
