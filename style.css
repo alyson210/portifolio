@@ -73,6 +73,9 @@ header h1 span {
 .navegacao-primaria li a:hover {
     color: #dc3545; /* Cor do texto no hover */
 }
+html {
+  scroll-behavior: smooth;
+}
 
 
 @media (min-width: 769px) {
