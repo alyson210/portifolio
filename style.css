@@ -73,47 +73,7 @@ header h1 span {
 .navegacao-primaria li a:hover {
     color: #dc3545; /* Cor do texto no hover */
 }
-/* No seu arquivo style.css */
 
-.navegacao-primaria li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1em;
-    padding: 10px 15px;
-    display: block;
-    transition: all 0.3s ease-in-out; 
-}
-
-.navegacao-primaria li a:hover {
-    color: #dc3545;
-}
-
-.navegacao-primaria li a {
-    position: relative;
-    overflow: hidden;
-}
-
-.navegacao-primaria li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #dc3545;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
-}
-
-.navegacao-primaria li a:hover::after {
-    transform: translateX(0);
-}
-
-.navegacao-primaria {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-}
 
 @media (min-width: 769px) {
     .navegacao-primaria {
